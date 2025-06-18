@@ -1,26 +1,12 @@
-import React from "react";
+import { ButtonProps } from "@/interfaces";
 
-interface ButtonProps {
-	children: React.ReactNode;
-	onClick?: () => void;
-	variant?: "primary" | "secondary";
-}
-
-const Button: React.FC<ButtonProps> = ({
-	children,
-	onClick,
-	variant = "primary",
-}) => {
+const Button: React.FC<ButtonProps> = ({ title, action }) => {
 	return (
 		<button
-			onClick={onClick}
-			className={`px-4 py-2 rounded ${
-				variant === "primary"
-					? "bg-blue-500 text-white"
-					: "bg-gray-200 text-black"
-			}`}
+			onClick={action}
+			className="px-8 py-2 border-2 border-[#E2D609] rounded-full hover:bg-[#E2D609] hover:text-black transition-colors duration-300"
 		>
-			{children}
+			{title}
 		</button>
 	);
 };
